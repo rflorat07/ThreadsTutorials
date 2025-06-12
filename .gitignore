@@ -1,0 +1,95 @@
+# Questo è un file .gitignore completo per un progetto iOS in Swift o Objective-C.
+# I commenti sono in italiano per chiarezza.
+
+# #######################
+# # File di sistema Mac
+# #######################
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icona personalizzata della cartella
+Icon?
+
+# File di Spotlight
+.Spotlight-V100
+.Trashes
+
+# ##################
+# # File di Xcode
+# ##################
+
+# File generati durante la compilazione
+build/
+DerivedData/
+
+# File temporanei
+*~
+*.swp
+
+# Prodotti dei test
+*.xctestrun
+
+# File di stato dell'interfaccia utente di Xcode
+# Questi salvano lo stato dell'interfaccia, come i file aperti, la navigazione, ecc.
+*.xcodeproj/*-xcworkspacedata.plist
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# File dello schema di progetto (condivisi)
+# Di solito si vogliono versionare, ma si escludono le impostazioni utente.
+*.xcodeproj/project.xcworkspace/xcshareddata/xcschemes/
+
+# File di stato dell'interfaccia utente del workspace
+*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+
+# Playgrounds di Xcode
+timeline.xctimeline
+playground.xcworkspace
+
+# ###############################
+# # Gestori di Dipendenze
+# ###############################
+
+# CocoaPods
+# Includere la cartella Pods è sconsigliato.
+# È meglio installare le dipendenze tramite `pod install`.
+Pods/
+Podfile.lock
+
+# Carthage
+# Aggiungere al controllo di versione solo Cartfile e Cartfile.resolved.
+Carthage/Build
+Carthage/Checkouts
+
+# Swift Package Manager (SPM)
+# Aggiungere al controllo di versione solo Package.swift e Package.resolved.
+.swiftpm/
+Packages/
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
+# ##############
+# # File Vari
+# ##############
+
+# File di configurazione locali e segreti
+# Rimuovi il commento se utilizzi file .env per le variabili d'ambiente.
+# .env
+# secrets.xcconfig
+
+# App Store
+# Non includere il pacchetto .ipa generato per l'archivio.
+*.ipa
+*.app
+
+# Fastlane
+# Non includere i report e i log generati da Fastlane.
+fastlane/report.xml
+fastlane/test_output
+fastlane/logs/
+
+# #####################
+# # Documentazione
+# #####################
+# Escludi la documentazione generata da strumenti come Jazzy o Doxygen.
+docs/
