@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4F67B3282E00B5FC006AA717 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4F67B3272E00B5FC006AA717 /* FirebaseAuth */; };
+		4F67B32A2E00B5FC006AA717 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4F67B3292E00B5FC006AA717 /* FirebaseFirestore */; };
+		4F67B32C2E00B5FC006AA717 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4F67B32B2E00B5FC006AA717 /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		4F085C5B2DEF8BB30084A508 /* ThreadsTutorials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreadsTutorials.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +29,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F67B3282E00B5FC006AA717 /* FirebaseAuth in Frameworks */,
+				4F67B32A2E00B5FC006AA717 /* FirebaseFirestore in Frameworks */,
+				4F67B32C2E00B5FC006AA717 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +74,9 @@
 			);
 			name = ThreadsTutorials;
 			packageProductDependencies = (
+				4F67B3272E00B5FC006AA717 /* FirebaseAuth */,
+				4F67B3292E00B5FC006AA717 /* FirebaseFirestore */,
+				4F67B32B2E00B5FC006AA717 /* FirebaseStorage */,
 			);
 			productName = ThreadsTutorials;
 			productReference = 4F085C5B2DEF8BB30084A508 /* ThreadsTutorials.app */;
@@ -94,6 +106,9 @@
 			);
 			mainGroup = 4F085C522DEF8BB30084A508;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4F67B3262E00B5FC006AA717 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4F085C5C2DEF8BB30084A508 /* Products */;
 			projectDirPath = "";
@@ -251,6 +266,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z49Q226VX7;
@@ -261,13 +277,15 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rogerflorat.ThreadsTutorials;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rogerflorat.ThreadsTutorialsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -279,6 +297,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z49Q226VX7;
@@ -289,13 +308,15 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rogerflorat.ThreadsTutorials;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rogerflorat.ThreadsTutorialsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -324,6 +345,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F67B3262E00B5FC006AA717 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.14.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F67B3272E00B5FC006AA717 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F67B3262E00B5FC006AA717 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		4F67B3292E00B5FC006AA717 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F67B3262E00B5FC006AA717 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		4F67B32B2E00B5FC006AA717 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F67B3262E00B5FC006AA717 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4F085C532DEF8BB30084A508 /* Project object */;
 }
