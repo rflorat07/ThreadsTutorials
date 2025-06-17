@@ -17,89 +17,101 @@ struct ProfileView: View {
     }
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            
-            VStack(spacing: 20) {
-                HStack(alignment: .top) {
-                    // Bio and stats
-                    VStack(alignment: .leading, spacing: 12) {
-                        // Fullname and Username
-                        VStack(alignment: .leading, spacing: 4)
-                        {
-                            Text("Charles Leclerc")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                            
-                            Text("charles_leclerc")
-                                .font(.subheadline)
-                        }
-                        
-                        
-                        Text("Formula 1 driver for Scuderia Ferrari")
-                            .font(.footnote)
-                        
-                        
-                        Text("2 followers")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                    }
-                    
-                    Spacer()
-                    
-                    CircularProfileImageView()
-                }
+        NavigationStack {
+            ScrollView(showsIndicators: false) {
                 
-                Button {
-                    
-                } label: {
-                    Text("Follow")
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .frame(width: 352, height: 32)
-                        .background(Color.black)
-                        .cornerRadius(8)
-                }
-                
-                // User content list View
-                VStack{
-                    HStack{
-                        ForEach(ProfileThreadsFilter.allCases) { filter in
-                            VStack {
-                                Text(filter.title)
+                VStack(spacing: 20) {
+                    HStack(alignment: .top) {
+                        // Bio and stats
+                        VStack(alignment: .leading, spacing: 12) {
+                            // Fullname and Username
+                            VStack(alignment: .leading, spacing: 4)
+                            {
+                                Text("Charles Leclerc")
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+                                
+                                Text("charles_leclerc")
                                     .font(.subheadline)
-                                    .fontWeight(selectedFilter == filter ? .semibold : .regular)
-                                
-                                if selectedFilter == filter  {
-                                    Rectangle()
-                                        .foregroundColor(.black)
-                                        .frame(width: filterBarWidth, height: 1)
-                                        .matchedGeometryEffect(id: "item", in: animation)
-                                } else {
-                                    Rectangle()
-                                        .foregroundColor(.clear)
-                                        .frame(width: filterBarWidth, height: 1)
-                                }
-                                
                             }
-                            .onTapGesture {
-                                withAnimation(.spring()) {
-                                    selectedFilter = filter
-                                }
-                            }
+                            
+                            
+                            Text("Formula 1 driver for Scuderia Ferrari")
+                                .font(.footnote)
+                            
+                            
+                            Text("2 followers")
+                                .font(.caption)
+                                .foregroundColor(.gray)
                         }
+                        
+                        Spacer()
+                        
+                        CircularProfileImageView()
                     }
                     
-                    LazyVStack {
-                        ForEach(0...10, id: \.self) { thread in
-                            ThreadCell()
+                    Button {
+                        
+                    } label: {
+                        Text("Follow")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .frame(width: 352, height: 32)
+                            .background(Color.black)
+                            .cornerRadius(8)
+                    }
+                    
+                    // User content list View
+                    VStack{
+                        HStack{
+                            ForEach(ProfileThreadsFilter.allCases) { filter in
+                                VStack {
+                                    Text(filter.title)
+                                        .font(.subheadline)
+                                        .fontWeight(selectedFilter == filter ? .semibold : .regular)
+                                    
+                                    if selectedFilter == filter  {
+                                        Rectangle()
+                                            .foregroundColor(.black)
+                                            .frame(width: filterBarWidth, height: 1)
+                                            .matchedGeometryEffect(id: "item", in: animation)
+                                    } else {
+                                        Rectangle()
+                                            .foregroundColor(.clear)
+                                            .frame(width: filterBarWidth, height: 1)
+                                    }
+                                    
+                                }
+                                .onTapGesture {
+                                    withAnimation(.spring()) {
+                                        selectedFilter = filter
+                                    }
+                                }
+                            }
+                        }
+                        
+                        LazyVStack {
+                            ForEach(0...10, id: \.self) { thread in
+                                ThreadCell()
+                            }
                         }
                     }
+                    .padding(.vertical, 8)
                 }
-                .padding(.vertical, 8)
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        AuthService.shared.signOut()
+                    } label: {
+                        Image(systemName: "line.3.horizontal")
+                    }
+
+                }
+            }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
     }
 }
 
