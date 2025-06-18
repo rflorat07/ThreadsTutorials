@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State private var selectedFilter: ProfileThreadsFilter = .threads
     @Namespace var animation
+    
+    @StateObject var viewModel = ProfileViewModel()
+    @State private var selectedFilter: ProfileThreadsFilter = .threads
+    
     
     private var filterBarWidth: CGFloat {
         let count = CGFloat(ProfileThreadsFilter.allCases.count)
