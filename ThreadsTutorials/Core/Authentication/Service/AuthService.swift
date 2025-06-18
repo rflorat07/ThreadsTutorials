@@ -23,6 +23,7 @@ class AuthService {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = result.user
+            try await UserService.shared.fetchCurrentUser()
             
         } catch {
             print("DEBUG: Error creating user: \(error.localizedDescription)")
@@ -46,6 +47,7 @@ class AuthService {
     func signOut() {
         try? Auth.auth().signOut() // Signs Out on Backend
         self.userSession = nil // This removes session locally and updates routing
+        UserService.shared.reset() // Sets current user object to nil
     }
     
     @MainActor
@@ -58,6 +60,7 @@ class AuthService {
             let user = User(id: id, fullname: fullname, email: email, username: username)
             guard let userDataRef = try? Firestore.Encoder().encode(user) else { return }
             try await Firestore.firestore().collection("users").document(id).setData(userDataRef)
+            UserService.shared.currentUser = user
             
     }
 }
