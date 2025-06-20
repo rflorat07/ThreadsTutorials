@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ProfileViewModel: ObservableObject {
+class CurrentUserProfileViewModel: ObservableObject {
     @Published var currentUser: User?
     private var cancellables: Set<AnyCancellable> = Set<AnyCancellable>()
     
@@ -19,7 +19,6 @@ class ProfileViewModel: ObservableObject {
     private func setupSubscribers() {
         UserService.shared.$currentUser.sink { [weak self] user in
             self?.currentUser = user
-            print("DEBUG: Current user updated: \(String(describing: user))")
         }.store(in: &cancellables)
             
     }
